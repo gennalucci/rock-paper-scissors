@@ -1,4 +1,4 @@
-// Function to randomly generate the computer's choice of rock, paper, or scissors based on 1/3 probability
+// Randomly generate the computer's choice of rock, paper, or scissors based on equal 1/3 probability
 function getComputerChoice() {
 	let computerChoice;
 	let prob = Math.random();
@@ -13,19 +13,20 @@ function getComputerChoice() {
 	return computerChoice;
 }
 
-// Function to prompt player for their choice and return it with the first letter capitalized only
+// Prompt player for their choice and standardize it
 function getHumanChoice() {
 	let humanChoice = prompt("Input your choice: rock, paper or scissors");
+	// Capitalizes the first letter only of human input
 	humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
 	return humanChoice;
 }
 
-// Function to run the entire game, which is 5 rounds of the playRound function, plus declaring a winner based on the outcome
+// Run the entire game: loop 1 round 5 times, tally scores and declare a winner based on the outcome
 function playGame() {
 	let computerScore = 0;
   let humanScore = 0;
 
-// Function to play 1 round out of 5
+  // Play 1 round out of 5
 	function playRound(humanChoice, computerChoice) {
 		// 3x3 = 9 combinations of outcomes per round
 		if (humanChoice === "Rock" && computerChoice === "Paper") {
@@ -52,12 +53,13 @@ function playGame() {
 		console.log("Human Score: " + humanScore);
 		console.log("Machine Score: " + computerScore);
 	}
-  // This will play 5 rounds which equals one game
+  // This loop will play a round 5 times
 	for (let i = 0; i < 5; i++) {
 		const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
 	  playRound(humanSelection, computerSelection);
 	}
+	// Compares the final scores and declares a victor after the game's conclusion
 	if (computerScore > humanScore) {
 		console.log("The Machine Race won :-(");
 	} else if (humanScore > computerScore) {
