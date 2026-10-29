@@ -44,7 +44,7 @@ function playGame() {
     } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
       computerScore++;
       console.log("Rock smashes scissors: 1 point for the machine race!");
-    } else if (humanChoice ==="Scissors" && computerChoice === "Paper") {
+    } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
       humanScore++;
       console.log("Scissors chop paper: 1 point for humanity!");
     } else { // Only 3 possible combinations left are draws
